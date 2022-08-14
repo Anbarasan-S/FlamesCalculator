@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" extends="struts-default" namespace="/">
+	
+<interceptors>
+			<interceptor class="com.Interceptor.CookieCheckInterceptor"
+				name="loginInterceptor" />
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name = "params"/>
+			</interceptor-stack>
+		</interceptors>
+	
+        <action name="login" class="com.Action.Login">
+           <result name="success" type="redirect">/flames.jsp</result>
+           <result name="input">/login.jsp</result>
+           <result name="error">/login.jsp</result>
+        </action>
+        
+        <action name="signup" class="com.Action.Signup">
+        	<result name="success" type="redirect">/verification.jsp</result>
+            <result name="error">/Signup.jsp</result>
+        	<result name="input">/Signup.jsp</result>
+        </action>
+        
+        <action name="verification" class="com.Action.Verify">
+        	<result name="success" type="redirect">/login.jsp</result>
+        	<result name="error">/verification.jsp</result>
+        	<result name="input">/verification.jsp</result>
+        </action>
+			
+		<action name="logout" class="com.Action.Logout">
+			<result name="success">/login.jsp</result>
+		</action >
+			        
+           <action name="flames" class="com.Action.Flames">
+           <result name="success">/flames.jsp</result>
+           <result name="input">/flames.jsp</result>
+           <result name="error">/login.jsp</result>
+        </action>
+    </package>
+</struts>

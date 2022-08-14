@@ -1,0 +1,18 @@
+body
+{
+	margin:0;
+	padding:0;
+}
+
+.header a
+{
+	text-decoration:none;
+	margin-left:2rem;
+}
+.header
+{
+	background-color:rgba(0, 0, 0, 0.425);
+	height:2.5rem;
+	padding-top:1rem;
+	padding-left: 3rem;
+}
